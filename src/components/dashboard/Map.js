@@ -1,4 +1,5 @@
 import { Card, CardBody, CardSubtitle, CardTitle } from "reactstrap";
+import { useRouter } from 'next/router';
 import { useMemo } from "react";
 import React from "react";
 import {GoogleMap,MarkerF,useLoadScript} from "@react-google-maps/api";
@@ -11,6 +12,15 @@ export default function Map (){
   // function map(){
   //   const center = useMemo(() => ({lat:12.8699,lng:80.2184}))  
   // }
+
+  function handleClick() {
+    console.log('Marker clicked');
+    // Use the router object to navigate to the page
+    router.push('/ui/CamViews');
+  }
+
+  const router = useRouter();
+
   return (
     <Card>
       <CardBody>
@@ -21,9 +31,10 @@ export default function Map (){
 
         <div>
           <GoogleMap zoom={15} center={{lat:12.8699,lng: 80.2107}} mapContainerClassName={styles.map}>
-             <MarkerF onClick={()=>console.log("Marker clicked")} position={{lat:12.8699,lng:80.2184}} />
+             <MarkerF onClick={handleClick} position={{lat:12.8699,lng:80.2184}} />
           </GoogleMap>
         </div>
+
       </CardBody>
     </Card>
   );
