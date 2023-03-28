@@ -2,6 +2,7 @@ import FullLayout from "../src/layouts/FullLayout";
 import Head from "next/head";
 import "../styles/style.scss";
 
+
 function MyApp({ Component, pageProps }) {
   return (
     <>
