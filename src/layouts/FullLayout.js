@@ -24,7 +24,7 @@ const FullLayout = ({ children }) => {
 
         <div className="contentArea">
           {/********header**********/}
-          <Header showMobmenu={() => showMobilemenu()} />
+          {/* <Header showMobmenu={() => showMobilemenu()} /> */}
 
           {/********Middle Content**********/}
           <Container className="p-4 wrapper" fluid>

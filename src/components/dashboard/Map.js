@@ -10,7 +10,7 @@ const Map = () => {
         </CardSubtitle>
 
         <div style={{marginBottom:'60%'}}>
-        {/* Add Google Maps Here */}
+            {/* Add Google Maps Here */}
         </div>
 
       </CardBody>
