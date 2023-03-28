@@ -14,7 +14,7 @@ const tableData = [
     project: "Flexy React",
     status: "pending",
     weeks: "35",
-    budget: "95K",
+    // budget: "95K",
   },
   {
     avatar: user2,
@@ -23,7 +23,7 @@ const tableData = [
     project: "Lading pro React",
     status: "done",
     weeks: "35",
-    budget: "95K",
+    // budget: "95K",
   },
   {
     avatar: user3,
@@ -32,7 +32,7 @@ const tableData = [
     project: "Elite React",
     status: "holt",
     weeks: "35",
-    budget: "95K",
+    // budget: "95K",
   },
   {
     avatar: user4,
@@ -41,7 +41,7 @@ const tableData = [
     project: "Flexy React",
     status: "pending",
     weeks: "35",
-    budget: "95K",
+    // budget: "95K",
   },
   {
     avatar: user5,
@@ -50,7 +50,7 @@ const tableData = [
     project: "Ample React",
     status: "done",
     weeks: "35",
-    budget: "95K",
+    // budget: "95K",
   },
 ];
 
@@ -58,20 +58,20 @@ const ProjectTables = () => {
   return (
     <Card>
       <CardBody>
-        <CardTitle tag="h5">Project Listing</CardTitle>
+        <CardTitle tag="h5">Police Officers</CardTitle>
         <CardSubtitle className="mb-2 text-muted" tag="h6">
-          Overview of the projects
+          Police Officers - Roles and Operations
         </CardSubtitle>
         <div className="table-responsive">
           <Table className="text-nowrap mt-3 align-middle" borderless>
             <thead>
               <tr>
-                <th>Team Lead</th>
-                <th>Project</th>
+                <th>Officer Name</th>
+                <th>Station</th>
 
                 <th>Status</th>
-                <th>Weeks</th>
-                <th>Budget</th>
+                <th>Cases</th>
+                {/* <th>Budget</th> */}
               </tr>
             </thead>
             <tbody>

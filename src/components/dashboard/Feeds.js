@@ -11,46 +11,44 @@ import {
 
 const FeedData = [
   {
-    title: 'Cras justo odio',
+    title: 'TN29 AD0000 -',
+    title1: 'OMR Main Road',
     icon: 'bi bi-bell',
-    color: 'primary',
+    color: 'danger',
     date: '6 minute ago',
     id: 1,
   },
   {
-    title: 'New user registered.',
-    icon: 'bi bi-person',
-    color: 'info',
-    date: '6 minute ago',
-    id: 2,
-  },
-  {
-    title: 'Server #1 overloaded.',
-    icon: 'bi bi-hdd',
-    color: 'danger',
-    date: '6 minute ago',
-    id: 3,
-  },
-  {
-    title: 'New order received.',
-    icon: 'bi bi-bag-check',
-    color: 'success',
-    date: '6 minute ago',
-    id: 4,
-  },
-  {
-    title: 'Cras justo odio',
+    title: 'KL42 RE1324 -',
+    title1: 'Crossed Border',
     icon: 'bi bi-bell',
     color: 'dark',
     date: '6 minute ago',
     id: 5,
   },
   {
-    title: 'Server #1 overloaded.',
-    icon: 'bi bi-hdd',
-    color: 'warning',
+    title: 'TN31 HY3050 -',
+    title1: 'Chennai NH',
+    icon: 'bi bi-bell',
+    color: 'danger',
     date: '6 minute ago',
-    id: 6,
+    id: 1,
+  },
+  {
+    title: 'TN20 NM1011 -',
+    title1: 'OMR Main Road',
+    icon: 'bi bi-bell',
+    color: 'danger',
+    date: '6 minute ago',
+    id: 1,
+  },
+  {
+    title: 'KA01 DF9224 -',
+    title1: 'Crossed Border',
+    icon: 'bi bi-bell',
+    color: 'dark',
+    date: '6 minute ago',
+    id: 5,
   },
 ];
 
@@ -58,9 +56,9 @@ const Feeds = () => {
   return (
     <Card>
       <CardBody>
-        <CardTitle tag="h5">Feeds</CardTitle>
+        <CardTitle tag="h5">Alerts</CardTitle>
         <CardSubtitle className="mb-2 text-muted" tag="h6">
-          Widget you can use
+          Real-Time Notifications
         </CardSubtitle>
         <ListGroup flush className="mt-4">
           {FeedData.map((feed) => (
@@ -74,7 +72,8 @@ const Feeds = () => {
               <Button className="rounded-circle me-3" size="sm" color={feed.color}>
                 <i className={feed.icon} />
               </Button>
-              {feed.title}
+              {feed.title} <br />
+              {feed.title1}
               <small className="ms-auto text-muted text-small">{feed.date}</small>
             </ListGroupItem>
           ))}
