@@ -24,11 +24,11 @@ const navigation = [
     href: "/ui/buttons",
     icon: "bi bi-hdd-stack",
   },
-  // {
-  //   title: "Recorded Footages",
-  //   href: "/ui/cards",
-  //   icon: "bi bi-card-text",
-  // },
+  {
+    title: "Number Plate Records",
+    href: "/ui/cards",
+    icon: "bi bi-card-text",
+  },
   {
     title: "Police Officers",
     href: "/ui/grid",
