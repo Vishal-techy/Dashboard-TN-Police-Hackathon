@@ -19,10 +19,15 @@ export default function Map (){
           OMR, Chennai
         </CardSubtitle>
 
+<<<<<<< HEAD
         <div>
           <GoogleMap zoom={15} center={{lat:12.8699,lng: 80.2107}} mapContainerClassName={styles.map}>
              <MarkerF onClick={()=>console.log("Marker clicked")} position={{lat:12.8699,lng:80.2184}} />
           </GoogleMap>
+=======
+        <div style={{marginBottom:'60%'}}>
+            {/* Add Google Maps Here */}
+>>>>>>> 1e2935ff7da6d6bff2c51aa96aa268193b684a5d
         </div>
       </CardBody>
     </Card>

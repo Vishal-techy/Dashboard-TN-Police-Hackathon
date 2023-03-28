@@ -16,6 +16,8 @@ import bg2 from "../../src/assets/images/bg/bg2.jpg";
 import bg3 from "../../src/assets/images/bg/bg3.jpg";
 import bg4 from "../../src/assets/images/bg/bg4.jpg";
 import Image from "next/image";
+import SmallCamFeed from "@/src/components/dashboard/SmallCamFeed";
+import TopCards from "@/src/components/dashboard/TopCards";
 
 const BlogData = [
   {
@@ -55,221 +57,67 @@ const BlogData = [
 const Cards = () => {
   return (
     <div>
-      {/* --------------------------------------------------------------------------------*/}
-      {/* Card-1*/}
-      {/* --------------------------------------------------------------------------------*/}
-      <h5 className="mb-3">Basic Card</h5>
-      <Row>
-        {BlogData.map((blg) => (
-          <Col sm="6" lg="6" xl="3" key={blg.title}>
-            <Blog
-              image={blg.image}
-              title={blg.title}
-              subtitle={blg.subtitle}
-              text={blg.description}
-              color={blg.btnbg}
+        <CardTitle tag="h5">Chennai, Tamil Nadu</CardTitle>
+        <CardSubtitle className="mb-2 text-muted" tag="h6">
+        Semmancheri
+        </CardSubtitle>
+
+        {/* CCTV Cam Feeds */}
+
+        <div class="d-flex">
+            <div style={{width:'65vw', height:'35vw', backgroundColor:'black'}}>
+
+            </div>
+
+            <div class="d-flex flex-column">
+                <div class="p-2 pt-0"><SmallCamFeed/></div>
+                <div class="p-2"><SmallCamFeed/></div>
+                <div class="p-2"><SmallCamFeed/></div>
+                <div class="p-2"><SmallCamFeed/></div>
+            </div>
+        </div>
+
+        <CardTitle tag="h5" style={{paddingTop:15, paddingBottom:10}}>CCTV Analytics</CardTitle>
+
+          {/***Top Cards***/}
+        <Row>
+          <Col sm="6" lg="3">
+            <TopCards
+              bg="bg-light-success text-success"
+              title="Profit"
+              subtitle="Yearly Earning"
+              earning="$21k"
+              icon="bi bi-wallet"
             />
           </Col>
-        ))}
-      </Row>
-      {/* --------------------------------------------------------------------------------*/}
-      {/* Card-2*/}
-      {/* --------------------------------------------------------------------------------*/}
-      <Row>
-        <h5 className="mb-3 mt-3">Alignment Text</h5>
-        <Col md="6" lg="4">
-          <Card body>
-            <CardTitle tag="h5">Special Title Treatment</CardTitle>
-            <CardText>
-              With supporting text below as a natural lead-in to additional
-              content.
-            </CardText>
-            <div>
-              <Button color="light-warning">Go somewhere</Button>
-            </div>
-          </Card>
-        </Col>
-        <Col md="6" lg="4">
-          <Card body className="text-center">
-            <CardTitle tag="h5">Special Title Treatment</CardTitle>
-            <CardText>
-              With supporting text below as a natural lead-in to additional
-              content.
-            </CardText>
-            <div>
-              <Button color="light-danger">Go somewhere</Button>
-            </div>
-          </Card>
-        </Col>
-        <Col md="6" lg="4">
-          <Card body className="text-end">
-            <CardTitle tag="h5">Special Title Treatment</CardTitle>
-            <CardText>
-              With supporting text below as a natural lead-in to additional
-              content.
-            </CardText>
-            <div>
-              <Button color="light-success">Go somewhere</Button>
-            </div>
-          </Card>
-        </Col>
-      </Row>
-      {/* --------------------------------------------------------------------------------*/}
-      {/* Card-2*/}
-      {/* --------------------------------------------------------------------------------*/}
-      <Row>
-        <h5 className="mb-3 mt-3">Colored Card</h5>
-        <Col md="6" lg="3">
-          <Card body color="primary" inverse>
-            <CardTitle tag="h5">Special Title Treatment</CardTitle>
-            <CardText>
-              With supporting text below as a natural lead-in to additional
-              content.
-            </CardText>
-            <div>
-              <Button>Button</Button>
-            </div>
-          </Card>
-        </Col>
-        <Col md="6" lg="3">
-          <Card body color="info" inverse>
-            <CardTitle tag="h5">Special Title Treatment</CardTitle>
-            <CardText>
-              With supporting text below as a natural lead-in to additional
-              content.
-            </CardText>
-            <div>
-              <Button>Button</Button>
-            </div>
-          </Card>
-        </Col>
-        <Col md="6" lg="3">
-          <Card body color="success" inverse>
-            <CardTitle tag="h5">Special Title Treatment</CardTitle>
-            <CardText>
-              With supporting text below as a natural lead-in to additional
-              content.
-            </CardText>
-            <div>
-              <Button>Button</Button>
-            </div>
-          </Card>
-        </Col>
-        <Col md="6" lg="3">
-          <Card body color="danger" inverse>
-            <CardTitle tag="h5">Special Title Treatment</CardTitle>
-            <CardText>
-              With supporting text below as a natural lead-in to additional
-              content.
-            </CardText>
-            <div>
-              <Button>Button</Button>
-            </div>
-          </Card>
-        </Col>
-        <Col md="6" lg="3">
-          <Card body color="light-warning">
-            <CardTitle tag="h5">Special Title Treatment</CardTitle>
-            <CardText>
-              With supporting text below as a natural lead-in to additional
-              content.
-            </CardText>
-            <div>
-              <Button>Button</Button>
-            </div>
-          </Card>
-        </Col>
-        <Col md="6" lg="3">
-          <Card body color="light-info">
-            <CardTitle tag="h5">Special Title Treatment</CardTitle>
-            <CardText>
-              With supporting text below as a natural lead-in to additional
-              content.
-            </CardText>
-            <div>
-              <Button>Button</Button>
-            </div>
-          </Card>
-        </Col>
-        <Col md="6" lg="3">
-          <Card body color="light-success">
-            <CardTitle tag="h5">Special Title Treatment</CardTitle>
-            <CardText>
-              With supporting text below as a natural lead-in to additional
-              content.
-            </CardText>
-            <div>
-              <Button>Button</Button>
-            </div>
-          </Card>
-        </Col>
-        <Col md="6" lg="3">
-          <Card body color="light-danger">
-            <CardTitle tag="h5">Special Title Treatment</CardTitle>
-            <CardText>
-              With supporting text below as a natural lead-in to additional
-              content.
-            </CardText>
-            <div>
-              <Button>Button</Button>
-            </div>
-          </Card>
-        </Col>
-      </Row>
-      {/* --------------------------------------------------------------------------------*/}
-      {/* Card-Group*/}
-      {/* --------------------------------------------------------------------------------*/}
-      <Row>
-        <h5 className="mb-3 mt-3">Card Group</h5>
-        <Col>
-          <CardGroup>
-            <Card>
-              <Image alt="Card image cap" src={bg1} />
-              <CardBody>
-                <CardTitle tag="h5">Card title</CardTitle>
-                <CardSubtitle className="mb-2 text-muted" tag="h6">
-                  Card subtitle
-                </CardSubtitle>
-                <CardText>
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </CardText>
-                <Button>Button</Button>
-              </CardBody>
-            </Card>
-            <Card>
-              <Image alt="Card image cap" src={bg2} />
-              <CardBody>
-                <CardTitle tag="h5">Card title</CardTitle>
-                <CardSubtitle className="mb-2 text-muted" tag="h6">
-                  Card subtitle
-                </CardSubtitle>
-                <CardText>
-                  This card has supporting text below as a natural lead-in to
-                  additional content.
-                </CardText>
-                <Button>Button</Button>
-              </CardBody>
-            </Card>
-            <Card>
-              <Image alt="Card image cap" src={bg3} />
-              <CardBody>
-                <CardTitle tag="h5">Card title</CardTitle>
-                <CardSubtitle className="mb-2 text-muted" tag="h6">
-                  Card subtitle
-                </CardSubtitle>
-                <CardText>
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This card has even longer
-                  content than the first to show that equal height action.
-                </CardText>
-                <Button>Button</Button>
-              </CardBody>
-            </Card>
-          </CardGroup>
-        </Col>
-      </Row>
+          <Col sm="6" lg="3">
+            <TopCards
+              bg="bg-light-danger text-danger"
+              title="Refunds"
+              subtitle="Refund given"
+              earning="$1k"
+              icon="bi bi-coin"
+            />
+          </Col>
+          <Col sm="6" lg="3">
+            <TopCards
+              bg="bg-light-warning text-warning"
+              title="New Project"
+              subtitle="Yearly Project"
+              earning="456"
+              icon="bi bi-basket3"
+            />
+          </Col>
+          <Col sm="6" lg="3">
+            <TopCards
+              bg="bg-light-info text-into"
+              title="Sales"
+              subtitle="Weekly Sales"
+              earning="210"
+              icon="bi bi-bag"
+            />
+          </Col>
+        </Row>        
     </div>
   );
 };

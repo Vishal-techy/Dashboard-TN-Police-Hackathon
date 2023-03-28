@@ -20,15 +20,15 @@ const navigation = [
     icon: "bi bi-patch-check",
   },
   {
-    title: "Geo-Fencing",
+    title: "Vehicle Search",
     href: "/ui/buttons",
     icon: "bi bi-hdd-stack",
   },
-  {
-    title: "Recorded Footages",
-    href: "/ui/cards",
-    icon: "bi bi-card-text",
-  },
+  // {
+  //   title: "Recorded Footages",
+  //   href: "/ui/cards",
+  //   icon: "bi bi-card-text",
+  // },
   {
     title: "Police Officers",
     href: "/ui/grid",
@@ -41,7 +41,7 @@ const Sidebar = ({ showMobilemenu }) => {
   const location = curl.pathname;
 
   return (
-    <div className="p-3">
+    <div className="p-3" style={{backgroundColor:'black', height:'100%'}}>
       <div className="d-flex align-items-center">
         <Logo />
         {/* <Button
@@ -59,8 +59,8 @@ const Sidebar = ({ showMobilemenu }) => {
               href={navi.href}
               className={
                 location === navi.href
-                  ? "text-primary nav-link py-3"
-                  : "nav-link text-secondary py-3"
+                  ? "text-white nav-link py-3"
+                  : "nav-link text-muted py-3"
               }>
 
               <i className={navi.icon}></i>
@@ -83,7 +83,7 @@ const Sidebar = ({ showMobilemenu }) => {
             tag="a"
             target="_blank"
             className="mt-5"
-            href="https://www.wrappixel.com/templates/xtreme-react-redux-admin/?ref=33"
+            href="/"
           >
             Emergency Alert
           </Button>

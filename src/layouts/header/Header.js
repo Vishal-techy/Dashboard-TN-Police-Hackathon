@@ -27,7 +27,7 @@ const Header = ({ showMobmenu }) => {
   };
 
   return (
-    <Navbar color="primary" dark expand="md">
+    <Navbar color="black" dark expand="md">
       <div className="d-flex align-items-center">
         <NavbarBrand href="/" className="d-lg-none">
           <Image src={LogoWhite} alt="logo" />
@@ -55,28 +55,28 @@ const Header = ({ showMobmenu }) => {
         <Nav className="me-auto" navbar>
           <NavItem>
             <Link href="/" className="nav-link">
-              Starter
+             Generate Alerts
             </Link>
           </NavItem>
           <NavItem>
             <Link href="/about" className="nav-link">
-              About
+              Manage App
             </Link>
           </NavItem>
           <UncontrolledDropdown inNavbar nav>
             <DropdownToggle caret nav>
-              DD Menu
+              Help
             </DropdownToggle>
             <DropdownMenu end>
-              <DropdownItem>Option 1</DropdownItem>
-              <DropdownItem>Option 2</DropdownItem>
+              <DropdownItem>CCTV Configuration</DropdownItem>
+              <DropdownItem>Troubleshoot</DropdownItem>
               <DropdownItem divider />
-              <DropdownItem>Reset</DropdownItem>
+              <DropdownItem>Reboot</DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
         </Nav>
         <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-          <DropdownToggle color="primary">
+          <DropdownToggle color="secondary">
             <div style={{ lineHeight: "0px" }}>
               <Image
                 src={user1}

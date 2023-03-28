@@ -8,48 +8,48 @@ import user5 from "../../assets/images/users/user5.jpg";
 
 const tableData = [
   {
-    avatar: user1,
-    name: "Hanna Gover",
-    email: "hgover@gmail.com",
-    project: "Flexy React",
+    avatar: user4,
+    name: "Thiru Shankar Jiwal Ips, Cop",
+    email: "cop.chncity@tncctns.gov.in",
+    project: "Chennai City",
     status: "pending",
-    weeks: "35",
-    // budget: "95K",
-  },
-  {
-    avatar: user2,
-    name: "Hanna Gover",
-    email: "hgover@gmail.com",
-    project: "Lading pro React",
-    status: "done",
-    weeks: "35",
-    // budget: "95K",
-  },
-  {
-    avatar: user3,
-    name: "Hanna Gover",
-    email: "hgover@gmail.com",
-    project: "Elite React",
-    status: "holt",
-    weeks: "35",
+    weeks: "044-23452215",
     // budget: "95K",
   },
   {
     avatar: user4,
-    name: "Hanna Gover",
-    email: "hgover@gmail.com",
-    project: "Flexy React",
-    status: "pending",
-    weeks: "35",
+    name: "Thiru Prem Anand Sinha Ips South",
+    email: "acop.losouth@tncctns.gov.in",
+    project: "Chennai City",
+    status: "done",
+    weeks: "044-23452650",
     // budget: "95K",
   },
   {
-    avatar: user5,
-    name: "Hanna Gover",
-    email: "hgover@gmail.com",
-    project: "Ample React",
+    avatar: user4,
+    name: "Thiru P.Mahendran",
+    email: "dc.adyar@tncctns.gov.in",
+    project: "Adyar",
+    status: "holt",
+    weeks: "044-23452601",
+    // budget: "95K",
+  },
+  {
+    avatar: user4,
+    name: "Thiru T.S.Anbu, Ips North",
+    email: "acop.lonorth@tncctns.gov.in",
+    project: "Chennai City",
+    status: "pending",
+    weeks: "044-23452261",
+    // budget: "95K",
+  },
+  {
+    avatar: user4,
+    name: "Thiru Kapil Kumar Saratkar Ips	",
+    email: "acop.traffic@tncctns.gov.in",
+    project: "Chennai City",
     status: "done",
-    weeks: "35",
+    weeks: "044-23452550",
     // budget: "95K",
   },
 ];
@@ -70,7 +70,7 @@ const ProjectTables = () => {
                 <th>Station</th>
 
                 <th>Status</th>
-                <th>Cases</th>
+                <th>Mobile</th>
                 {/* <th>Budget</th> */}
               </tr>
             </thead>
