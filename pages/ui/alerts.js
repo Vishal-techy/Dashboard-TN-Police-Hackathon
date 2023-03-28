@@ -57,9 +57,9 @@ const Alerts = () => {
             
             <Alert color="warning">
               Lorry with TN32 D0493 - Theft vehicle has crossed the Gandhipuram Signal, Coimbatore.
-              <Link href="/" className="alert-link">
+              {/* <Link href="/" className="alert-link">
                 Alert Gandhipuram Police Station
-              </Link>
+              </Link> */}
             </Alert>
 
             <Alert color="info">
@@ -68,9 +68,9 @@ const Alerts = () => {
 
             <Alert color="danger">
               Hero Honda with TN28 AB0490 - Fake Vehicle Plate vehicle detected at Salem Five road junction.
-              <Link href="/" className="alert-link">
+              {/* <Link href="/" className="alert-link">
                 Alert Salem City Police
-              </Link>
+              </Link> */}
             </Alert>
 
             <Alert color="danger">
