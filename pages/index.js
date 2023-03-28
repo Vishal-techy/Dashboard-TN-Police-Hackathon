@@ -59,7 +59,8 @@ export default function Home() {
         {/***Sales & Feed***/}
         <Row>
           <Col sm="12" lg="6" xl="7" xxl="8">
-            <Map />
+            {/* <Map /> */}
+            
           </Col>
           <Col sm="12" lg="6" xl="5" xxl="4">
             <Feeds />
