@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { Card, CardBody, CardSubtitle, CardTitle } from "reactstrap";
  
 function Cam() {
   let videoRef = useRef(null);
@@ -51,18 +52,26 @@ function Cam() {
   }, [videoRef]);
  
   return (
-    <div className="container">
-      <h1 className="text-center">Camera SelfiCam in React</h1>
- 
-      <video ref={videoRef} className="container"></video>
- 
-      <button onClick={takePicture} className="btn btn-danger container">Take Picture</button>
- 
-      <canvas className="container" ref={photoRef}></canvas>
- 
-      <button onClick={clearImage} className="btn btn-primary container">Clear Image</button>
- 
-      <br/><br/>
+    <div>
+
+    <Card>
+      <CardBody>
+        <CardTitle tag="h5">CCTV Map View</CardTitle>
+        <CardSubtitle className="text-muted" tag="h6" style={{marginBottom:10}}>
+          OMR, Chennai
+        </CardSubtitle>
+
+        <div>
+          <video ref={videoRef} className="container" style={{width:'50vw', height:'40vw'}}></video>
+          <button onClick={takePicture} className="btn btn-danger container">Take Picture</button>
+          <canvas className="container" ref={photoRef}></canvas>
+          <button onClick={clearImage} className="btn btn-primary container">Clear Image</button>
+          <br/><br/>
+        </div>
+
+      </CardBody>
+    </Card>
+
     </div>
   );
 }

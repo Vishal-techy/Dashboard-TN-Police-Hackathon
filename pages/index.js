@@ -9,7 +9,7 @@ import bg1 from "../src/assets/images/bg/bg1.jpg";
 import bg2 from "../src/assets/images/bg/bg2.jpg";
 import bg3 from "../src/assets/images/bg/bg3.jpg";
 import bg4 from "../src/assets/images/bg/bg4.jpg";
-import Map from "@/src/components/dashboard/Map";
+import Cam from "@/src/components/dashboard/Cam";
 
 const BlogData = [
   {
@@ -59,7 +59,7 @@ export default function Home() {
         {/***Sales & Feed***/}
         <Row>
           <Col sm="12" lg="6" xl="7" xxl="8">
-            <Map />
+            <Cam />
           </Col>
           <Col sm="12" lg="6" xl="5" xxl="4">
             <Feeds />
