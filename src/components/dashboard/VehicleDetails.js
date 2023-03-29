@@ -34,7 +34,7 @@ const VehicleDetails = () => {
   return (
     <Card>
       <CardBody>
-        <CardTitle tag="h5">Missing Vehicle</CardTitle>
+        <CardTitle tag="h5">Add Vehicle</CardTitle>
         <CardSubtitle className="mb-2 text-muted" tag="h6">
           Enter Vehicle Details
         </CardSubtitle>
@@ -75,7 +75,7 @@ const VehicleDetails = () => {
         </div>
 
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Missing/Theft Location" aria-label="Username" aria-describedby="basic-addon1" />
+            <input type="text" class="form-control" placeholder="Record" aria-label="Username" aria-describedby="basic-addon1" />
         </div>
 
         <div class="input-group mb-3">
