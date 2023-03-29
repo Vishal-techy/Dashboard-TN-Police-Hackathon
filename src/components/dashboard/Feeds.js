@@ -77,11 +77,11 @@ const Feeds = () => {
 
            if(vehicles.data.data[0].plate != data1.number){
              if(vehicles.data.plateData.plateStatus == 'Not Found' && vehicles.data.data[0].plate != data1.number){
-               setFeedData((FeedData) => [...FeedData, {title: vehicles.data.data[0].plate, title1: 'Spotted by CAM A', icon: 'bi bi-bell', color: 'dark', date: 'Fake number plate'}]);
+               setFeedData((FeedData) => [...FeedData, {title: vehicles.data.data[0].plate, title1: 'Spotted by CAM B', icon: 'bi bi-bell', color: 'dark', date: 'Fake number plate'}]);
               }
             }else if(vehicles.data.data[0].plate === data1.number){
               
-              setFeedData((FeedData) => [...FeedData, {title: vehicles.data.data[0].plate, title1: 'Spotted by CAM A', icon: 'bi bi-bell', color: 'danger', date: 'Lost Vehicle'}]);
+              setFeedData((FeedData) => [...FeedData, {title: vehicles.data.data[0].plate, title1: 'Spotted by CAM B', icon: 'bi bi-bell', color: 'danger', date: 'Lost Vehicle'}]);
             }
          })
       })
@@ -94,7 +94,7 @@ const Feeds = () => {
   pb.collection('alerts').subscribe('*', function (e) {
     console.log(e.record.data);
    
-    setFeedData((FeedData) => [...FeedData, {title: e.record.data.data[0].plate, title1: 'Spotted by CAM A', icon: 'bi bi-bell', color: 'dark',}]);
+    setFeedData((FeedData) => [...FeedData, {title: e.record.data.data[0].plate, title1: 'Spotted by CAM B', icon: 'bi bi-bell', color: 'dark',}]);
   });
 
 
