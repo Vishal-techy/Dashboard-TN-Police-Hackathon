@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Card,
   CardBody,
@@ -9,7 +9,28 @@ import {
   Button,
 } from 'reactstrap';
 
+import PocketBase from 'pocketbase';
+
+const pb = new PocketBase('https://scary-child.pockethost.io');
+
 const VehicleDetails = () => {
+  
+  pb.autoCancellation(false)
+  const [number, setNumber] = useState()
+  
+  
+  const markAsLost = () => {
+      alert('Uploading')
+      pb.collection('lost').create({"number": number, "status": "lost"}).then(() => {
+        alert('Done')
+        setNumber('')
+      })
+    
+  }
+
+  const handleChange = (e) => {
+    setNumber(e.target.value)
+  }
   return (
     <Card>
       <CardBody>
@@ -41,8 +62,8 @@ const VehicleDetails = () => {
             <input type="text" class="form-control" placeholder="Vehicle Type" aria-label="Username" aria-describedby="basic-addon1" />
         </div>
 
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Vehicle Number" aria-label="Username" aria-describedby="basic-addon1" />
+        <div class="input-group mb-3" onChange={handleChange}>
+            <input value={number} type="text" class="form-control" placeholder="Vehicle Number*" aria-label="Username" aria-describedby="basic-addon1" />
         </div>
 
         <div class="input-group mb-3">
@@ -61,14 +82,14 @@ const VehicleDetails = () => {
             <input type="text" class="form-control" placeholder="Other marks on Vehicle" aria-label="Username" aria-describedby="basic-addon1" />
         </div>
 
-        <div class="input-group mb-3">
+        {/* <div class="input-group mb-3">
             <div class="custom-file">
                 <input  type="file" class="custom-file-input" id="inputGroupFile01"/>
             </div>
-        </div>
+        </div> */}
 
         <div class="d-flex justify-content-center align-items-center mt-3 container-fluid">
-            <button type="button" class="btn btn-dark" style={{paddingLeft:'135px', paddingRight:'135px'}}>Search</button>
+            <button  onClick={markAsLost} type="button" className="btn btn-dark" style={{paddingLeft:'35px', paddingRight:'35px'}}>Mark as lost</button>
         </div>
 
       </CardBody>

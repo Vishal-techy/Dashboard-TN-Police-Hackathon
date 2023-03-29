@@ -1,80 +1,96 @@
-import React, { useEffect, useRef,useState } from "react";
+import React, { useCallback, useEffect, useRef,useState } from "react";
 import { Button, Card, CardBody, CardSubtitle, CardTitle } from "reactstrap";
+import Webcam from "react-webcam";
 
-// const [photo,setPhoto] = useState()
- 
+import axios from "axios";
+import PocketBase from 'pocketbase';
+
+const pb = new PocketBase('https://scary-child.pockethost.io');
+
 function Cam() {
-  let videoRef = useRef(null);
- 
-  let photoRef = useRef(null)
- 
-  const getVideo = () => {
-    navigator.mediaDevices
-      .getUserMedia({
-        video: true
-      })
-      .then((stream) => {
-        let video = videoRef.current;
-        video.srcObject = stream;
-        video.play();
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
- 
-  const takePicture = () => {
-    const width = 400
-    const height = width / (16 / 9)
-    
-    let video = videoRef.current
- 
-    let photo = photoRef.current
- 
-    photo.width = width
-    photo.height = height
- 
-    let ctx = photo.getContext('2d')
+  const [img, setImg] = useState(null);
+  const webcamRef = useRef(null);
+  const hiddenFileInput = useRef(null);
 
-    console.log('====================================');
-    console.log(photoRef.current);
-    console.log('====================================');
- 
-    ctx.drawImage(video, 0, 0, width, height)
-    
-  }
- 
-  const clearImage = () => {
-    let photo = photoRef.current
-    let ctx = photo.getContext('2d')
-    ctx.clearRect(0,0,photo.width,photo.height)
-  }
+  const [isVideo, setIsVideo] = useState(false);
+  const [videoFile, setVideoFile] = useState(null);
 
-  const [selectedFile, setSelectedFile] = React.useState(null);
-
-  const handleSubmit = async(event) => {
-    event.preventDefault()
-    const formData = new FormData();
-    formData.append("selectedFile", selectedFile);
-    try {
-      const response = await axios({
-        method: "post",
-        url: "/api/upload/file",
-        data: formData,
-        headers: { "Content-Type": "multipart/form-data" },
-      });
-    } catch(error) {
-      console.log(error)
+  const dataURLtoFile = (dataurl, filename) => {
+    const arr = dataurl.split(',')
+    const mime = arr[0].match(/:(.*?);/)[1]
+    const bstr = atob(arr[1])
+    let n = bstr.length
+    const u8arr = new Uint8Array(n)
+    while (n) {
+      u8arr[n - 1] = bstr.charCodeAt(n - 1)
+      n -= 1 // to make eslint happy
     }
-  }
-  const handleFileSelect = (event) => {
-    setSelectedFile(event.target.photoRef)
+    return new File([u8arr], filename, { type: mime })
   }
 
-  useEffect(() => {
-    getVideo();
-  }, [videoRef]);
  
+  const capture = useCallback(() => {
+    const imageSrc = webcamRef.current.getScreenshot();
+    setImg(imageSrc);
+    // console.log(imageSrc);
+    // const file = dataURLtoFile(imageSrc)
+    // console.log(file);
+    // let formData = new FormData();
+    // formData.append("file", file);
+
+    const fd = new FormData();
+    fetch(imageSrc)
+    .then(res => res.blob())
+    .then(blob => {
+      const file = new File([blob], "filename.jpeg");
+      fd.append('file', file)
+      console.log(fd);
+    }).then(() => {
+      axios.post("http://10.10.30.73:5001/upload-image", fd, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        }
+      }).then((data) => {
+        console.log(data);
+        pb.collection('alerts').create(data)
+      }).catch((err)=> {
+        console.log(err);
+        alert()
+      })
+
+    })
+  }, [webcamRef]);
+
+  const handleChange = event => {
+    if (event.target.files && event.target.files[0]) {
+      setVideoFile(event.target.files[0]);
+      const i = event.target.files[0];
+      const body = new FormData();
+      body.append("file", i);
+      setIsVideo(true);
+      axios.post("http://10.10.30.73:5001/upload", body, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        }
+      }).then((data) => {
+        console.log(data);
+        pb.collection('alerts').create(data).then(() => {
+          setIsVideo(false);
+        })
+      }).catch((err)=> {
+        console.log(err);
+        setIsVideo(false);
+        alert()
+      })
+
+    }
+  };
+
+  const handleClick = event => {
+    hiddenFileInput.current.click();
+  };
+
+  
   return (
     <div>
 
@@ -86,14 +102,18 @@ function Cam() {
         </CardSubtitle>
 
         <div>
-          <video ref={videoRef} className="container" style={{width:'50vw', height:'30vw'}}></video>
-          <div style={{marginLeft:315,marginTop:20}}><button onClick={takePicture} style={{background:'black',width:150}} className="btn container text-white">Take Picture</button></div>
-          <canvas className="container" style={{display: 'none'}} ref={photoRef}></canvas>
-          <form onSubmit={handleSubmit}>
-      <input type="file" onChange={handleFileSelect}/>
-      <input type="submit" value="Take Picture" />
-    </form>
-          <br/><br/>
+          {
+            isVideo ? 
+            <video autoPlay src={URL.createObjectURL(videoFile)} controls style={{width:'45vw', height:'30vw'}}></video> : 
+            <Webcam screenshotFormat="image/jpeg" ref={webcamRef} className="container" style={{width:'45vw', height:'30vw'}}/>
+          }
+          <div style={{marginLeft:315,marginTop:20}}><button onClick={capture} style={{background:'black',width:150}} className="btn container text-white">Take Picture</button></div>
+          <input type="file"
+                  ref={hiddenFileInput}
+                  onChange={handleChange}
+                  style={{ display: 'none' }} />
+          <div style={{marginLeft:315,marginTop:20}}><button onClick={handleClick} style={{background:'black',width:150}} className="btn container text-white">Upload video</button></div>
+
         </div>
 
       </CardBody>
